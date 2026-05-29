@@ -1,0 +1,3 @@
+- Move each blog post to individual `.md` files for parsing
+- Update website text, formatting, etc.
+- Move `www.host.com/blog/xyz` to `www.host.com/xyz`
