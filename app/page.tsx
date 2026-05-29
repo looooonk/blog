@@ -1,65 +1,127 @@
+import Link from "next/link";
 import Image from "next/image";
 
+import { allPosts, formatPostDate } from "@/lib/posts";
+
 export default function Home() {
+  const [featured, ...posts] = allPosts;
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <div className="min-h-screen">
+      <div className="lg:flex lg:min-h-screen">
+        <aside className="border-b border-border px-6 py-10 sm:px-10 lg:sticky lg:top-0 lg:h-screen lg:w-80 lg:flex-shrink-0 lg:border-b-0 lg:border-r xl:w-96">
+          <div className="space-y-5 lg:mx-auto lg:max-w-xs">
+            <div className="space-y-3">
+              <p className="text-sm text-muted-foreground">Taehoon Hwang</p>
+              <h1 className="text-3xl font-bold tracking-normal text-foreground">
+                Notes
+              </h1>
+              <div className="h-px w-full bg-border" />
+            </div>
+
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              Essays and technical notes on software, research, and building
+              small systems that stay understandable.
+            </p>
+
+            <nav aria-label="Primary" className="flex gap-4 text-sm">
+              <Link className="font-medium text-foreground hover:text-muted-foreground" href="/">
+                Blog
+              </Link>
+              <a
+                className="font-medium text-foreground hover:text-muted-foreground"
+                href="https://github.com/looooonk"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                GitHub
+              </a>
+            </nav>
+          </div>
+        </aside>
+
+        <main className="min-w-0 flex-1 px-6 py-8 sm:px-10 lg:px-12 lg:py-10 xl:px-16">
+          <section className="max-w-4xl">
+            <Link
+              href={`/blog/${featured.slug}`}
+              className="group grid gap-6 border-b border-border pb-8 lg:grid-cols-[minmax(0,1fr)_18rem]"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+              <div className="space-y-4">
+                <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
+                  <time dateTime={featured.timestamp}>
+                    {formatPostDate(featured.timestamp)}
+                  </time>
+                  <span aria-hidden="true">/</span>
+                  <span>{featured.tags.join(", ")}</span>
+                </div>
+
+                <div className="space-y-2">
+                  <h2 className="text-3xl font-bold leading-tight text-foreground sm:text-4xl">
+                    {featured.title}
+                  </h2>
+                  {featured.subtitle ? (
+                    <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
+                      {featured.subtitle}
+                    </p>
+                  ) : null}
+                </div>
+
+                <span className="inline-flex text-sm font-medium text-foreground group-hover:text-muted-foreground">
+                  Read post
+                </span>
+              </div>
+
+              <Image
+                alt={featured.image.alt}
+                className="aspect-[16/10] w-full rounded-sm border border-border object-cover grayscale-[10%]"
+                height={900}
+                loading="eager"
+                src={featured.image.src}
+                width={1600}
+              />
+            </Link>
+          </section>
+
+          <section className="max-w-4xl py-8" aria-label="All posts">
+            <div className="grid gap-4">
+              {posts.map((post) => (
+                <Link
+                  key={post.slug}
+                  href={`/blog/${post.slug}`}
+                  className="group grid gap-4 rounded-sm border border-border bg-card p-4 transition-colors hover:bg-secondary sm:grid-cols-[12rem_minmax(0,1fr)]"
+                >
+                  <Image
+                    alt={post.image.alt}
+                    className="aspect-[16/10] w-full rounded-sm border border-border object-cover grayscale-[10%]"
+                    height={900}
+                    src={post.image.src}
+                    width={1600}
+                  />
+
+                  <article className="min-w-0 space-y-2">
+                    <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
+                      <time dateTime={post.timestamp}>
+                        {formatPostDate(post.timestamp)}
+                      </time>
+                      <span aria-hidden="true">/</span>
+                      <span>{post.tags.join(", ")}</span>
+                    </div>
+
+                    <h2 className="text-xl font-bold leading-snug text-foreground group-hover:text-muted-foreground">
+                      {post.title}
+                    </h2>
+                    {post.subtitle ? (
+                      <p className="text-sm leading-relaxed text-muted-foreground">
+                        {post.subtitle}
+                      </p>
+                    ) : null}
+                  </article>
+                </Link>
+              ))}
+            </div>
+          </section>
+        </main>
+      </div>
     </div>
   );
 }
