@@ -13,7 +13,7 @@
 - Keep the app in the App Router unless there is a clear reason to add Pages Router files.
 
 ## Styling
-- `org-source` is a symlink to the portfolio app and is the styling reference for this blog.
+- `https://github.com/looooonk/portfolio` is a portfolio app and is the styling reference for this blog.
 - Match its quiet serif typography, HSL CSS variables, class-based dark mode, narrow borders, and small radii.
 - Do not introduce a separate design system or broad color palette unless the portfolio styling changes first.
 

@@ -1,7 +1,33 @@
 import Link from "next/link";
 import Image from "next/image";
+import type { ReactNode } from "react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { IoPersonCircle } from "react-icons/io5";
 
 import { allPosts, formatPostDate } from "@/app/lib/posts";
+
+function IconLink({
+  href,
+  label,
+  children,
+}: {
+  href: string;
+  label: string;
+  children: ReactNode;
+}) {
+  return (
+    <a
+      aria-label={label}
+      className="text-foreground hover:text-muted-foreground"
+      href={href}
+      rel="noopener noreferrer"
+      target="_blank"
+      title={label}
+    >
+      {children}
+    </a>
+  );
+}
 
 export default function Home() {
   const [featured, ...posts] = allPosts;
@@ -14,28 +40,34 @@ export default function Home() {
             <div className="space-y-3">
               <p className="text-sm text-muted-foreground">Taehoon Hwang</p>
               <h1 className="text-3xl font-bold tracking-normal text-foreground">
-                Notes
+                Blog
               </h1>
               <div className="h-px w-full bg-border" />
             </div>
 
             <p className="text-sm leading-relaxed text-muted-foreground">
-              Essays and technical notes on software, research, and building
-              small systems that stay understandable.
+              Essays on software, research, and whatever I&apos;m interested in at the time.
             </p>
 
-            <nav aria-label="Primary" className="flex gap-4 text-sm">
-              <Link className="font-medium text-foreground hover:text-muted-foreground" href="/">
-                Blog
-              </Link>
-              <a
-                className="font-medium text-foreground hover:text-muted-foreground"
+            <nav aria-label="Social links" className="flex gap-4">
+              <IconLink
                 href="https://github.com/looooonk"
-                rel="noopener noreferrer"
-                target="_blank"
+                label="GitHub profile"
               >
-                GitHub
-              </a>
+                <FaGithub size={24} />
+              </IconLink>
+              <IconLink
+                href="https://www.linkedin.com/in/taehoon-hwang/"
+                label="LinkedIn profile"
+              >
+                <FaLinkedin size={24} />
+              </IconLink>
+              <IconLink
+                href="https://www.taehoonhwang.net/"
+                label="Portfolio website"
+              >
+                <IoPersonCircle size={24} />
+              </IconLink>
             </nav>
           </div>
         </aside>

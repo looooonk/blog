@@ -1,5 +1,6 @@
 "use client";
 
+import { Moon, Sun } from "lucide-react";
 import { useSyncExternalStore } from "react";
 
 type Theme = "light" | "dark";
@@ -60,17 +61,12 @@ export default function ThemeToggle() {
   return (
     <button
       aria-label={is_dark ? "Switch to light mode" : "Switch to dark mode"}
-      className="fixed right-4 top-4 z-50 inline-flex items-center gap-2 rounded-sm border border-border bg-background px-3 py-1.5 text-sm text-foreground hover:bg-secondary"
+      className="fixed right-4 top-4 z-50 inline-flex items-center gap-2 rounded border border-border bg-background px-3 py-1.5 text-sm text-foreground hover:bg-secondary"
       onClick={toggle_theme}
       title={is_dark ? "Switch to light mode" : "Switch to dark mode"}
       type="button"
     >
-      <span
-        aria-hidden="true"
-        className={`h-3.5 w-3.5 rounded-full border border-foreground ${
-          is_dark ? "bg-transparent shadow-[inset_-4px_0_0_0_currentColor]" : "bg-foreground"
-        }`}
-      />
+      {is_dark ? <Sun size={14} /> : <Moon size={14} />}
       <span>{is_dark ? "Light" : "Dark"}</span>
     </button>
   );
