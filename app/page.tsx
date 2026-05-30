@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import { allPosts, formatPostDate } from "@/lib/posts";
+import { allPosts, formatPostDate } from "@/app/lib/posts";
 
 export default function Home() {
   const [featured, ...posts] = allPosts;

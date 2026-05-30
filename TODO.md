@@ -1,2 +1,1 @@
-- Move each blog post to individual `.md` files for parsing
 - Update website text, formatting, etc.

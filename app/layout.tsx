@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
-import ThemeToggle from "@/components/theme-toggle";
+import ThemeToggle from "@/app/components/theme-toggle";
 
 import "./globals.css";
 

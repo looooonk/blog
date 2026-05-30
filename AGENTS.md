@@ -18,7 +18,7 @@
 - Do not introduce a separate design system or broad color palette unless the portfolio styling changes first.
 
 ## Blog Content
-- Posts are defined in `lib/posts.ts` and rendered through `components/markdown.tsx`.
+- Posts are defined in `app/lib/posts.ts` and rendered through `app/components/markdown.tsx`.
 - Each post should include `timestamp`, `title`, `tags`, optional `subtitle`, `image`, and `content`.
 - Keep markdown portable. Prefer ordinary markdown syntax over JSX-like content.
 - Cover images should live under `public/images` and include useful alt text.

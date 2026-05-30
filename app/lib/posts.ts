@@ -3,8 +3,8 @@ import "server-only";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 
-const postContentDirectory = path.join(process.cwd(), "content", "posts");
-const postContentPrefix = "content/posts/";
+const postContentDirectory = path.join(process.cwd(), "content");
+const postContentPrefix = "content/";
 
 export interface BlogPost {
   slug: string;
@@ -31,7 +31,7 @@ const posts = [
       src: "/images/field-notes.png",
       alt: "Abstract notebook and browser window illustration",
     },
-    content: "content/posts/why-this-blog-exists.md",
+    content: "content/why-this-blog-exists.md",
   },
   {
     slug: "markdown-as-contract",
@@ -44,7 +44,7 @@ const posts = [
       src: "/images/markdown-contract.png",
       alt: "Abstract markdown document illustration",
     },
-    content: "content/posts/markdown-as-contract.md",
+    content: "content/markdown-as-contract.md",
   },
   {
     slug: "small-model-notes",
@@ -57,7 +57,7 @@ const posts = [
       src: "/images/small-models.png",
       alt: "Abstract model evaluation chart illustration",
     },
-    content: "content/posts/small-model-notes.md",
+    content: "content/small-model-notes.md",
   },
 ] satisfies BlogPost[];
 

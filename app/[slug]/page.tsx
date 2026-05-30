@@ -3,14 +3,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import Markdown from "@/components/markdown";
+import Markdown from "@/app/components/markdown";
 import {
   allPosts,
   formatPostDate,
   getAdjacentPosts,
   getPost,
   readPostContent,
-} from "@/lib/posts";
+} from "@/app/lib/posts";
 
 type Props = {
   params: Promise<{ slug: string }>;
