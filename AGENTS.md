@@ -22,3 +22,8 @@
 - Each post should include `timestamp`, `title`, `tags`, optional `subtitle`, `image`, and `content`.
 - Keep markdown portable. Prefer ordinary markdown syntax over JSX-like content.
 - Cover images should live under `public/images` and include useful alt text.
+
+## Testing
+- All lints should be done through `npm run lint` only.
+- Do not use the browser itself for tests.
+- Do not leave the local website running after you are done implementing.
