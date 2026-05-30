@@ -3,6 +3,7 @@ import Image from "next/image";
 import type { ReactNode } from "react";
 import { MapPin } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaOrcid } from "react-icons/fa6";
 import { IoPersonCircle } from "react-icons/io5";
 
 import PostSearch from "@/app/components/post-search";
@@ -67,16 +68,22 @@ export default function Home() {
 
             <nav aria-label="Social links" className="flex gap-4">
               <IconLink
+                href="https://www.linkedin.com/in/taehoon-hwang/"
+                label="LinkedIn profile"
+              >
+                <FaLinkedin size={24} />
+              </IconLink>
+              <IconLink
                 href="https://github.com/looooonk"
                 label="GitHub profile"
               >
                 <FaGithub size={24} />
               </IconLink>
               <IconLink
-                href="https://www.linkedin.com/in/taehoon-hwang/"
-                label="LinkedIn profile"
+                href="https://orcid.org/0009-0005-6452-9258"
+                label="ORCID profile"
               >
-                <FaLinkedin size={24} />
+                <FaOrcid size={24} />
               </IconLink>
               <IconLink
                 href="https://www.taehoonhwang.net/"
