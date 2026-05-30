@@ -43,7 +43,7 @@ export default function Home() {
         <main className="min-w-0 flex-1 px-6 py-8 sm:px-10 lg:px-12 lg:py-10 xl:px-16">
           <section className="max-w-4xl">
             <Link
-              href={`/blog/${featured.slug}`}
+              href={`/${featured.slug}`}
               className="group grid gap-6 border-b border-border pb-8 lg:grid-cols-[minmax(0,1fr)_18rem]"
             >
               <div className="space-y-4">
@@ -87,7 +87,7 @@ export default function Home() {
               {posts.map((post) => (
                 <Link
                   key={post.slug}
-                  href={`/blog/${post.slug}`}
+                  href={`/${post.slug}`}
                   className="group grid gap-4 rounded-sm border border-border bg-card p-4 transition-colors hover:bg-secondary sm:grid-cols-[12rem_minmax(0,1fr)]"
                 >
                   <Image

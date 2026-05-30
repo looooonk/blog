@@ -89,7 +89,7 @@ export default async function BlogPostPage({ params }: Props) {
             {previous ? (
               <Link
                 className="rounded-sm border border-border p-4 hover:bg-secondary"
-                href={`/blog/${previous.slug}`}
+                href={`/${previous.slug}`}
               >
                 <span className="block text-sm text-muted-foreground">Previous</span>
                 <span className="font-medium text-foreground">{previous.title}</span>
@@ -101,7 +101,7 @@ export default async function BlogPostPage({ params }: Props) {
             {next ? (
               <Link
                 className="rounded-sm border border-border p-4 text-right hover:bg-secondary"
-                href={`/blog/${next.slug}`}
+                href={`/${next.slug}`}
               >
                 <span className="block text-sm text-muted-foreground">Next</span>
                 <span className="font-medium text-foreground">{next.title}</span>
@@ -117,7 +117,7 @@ export default async function BlogPostPage({ params }: Props) {
               {related.map((entry) => (
                 <Link
                   className="flex items-center justify-between gap-4 rounded-sm border border-border px-3 py-2 text-sm hover:bg-secondary"
-                  href={`/blog/${entry.slug}`}
+                  href={`/${entry.slug}`}
                   key={entry.slug}
                 >
                   <span className="font-medium text-foreground">{entry.title}</span>
