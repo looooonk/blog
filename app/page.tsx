@@ -5,6 +5,7 @@ import { MapPin } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { IoPersonCircle } from "react-icons/io5";
 
+import PostSearch from "@/app/components/post-search";
 import { allPosts, formatPostDate } from "@/app/lib/posts";
 
 function IconLink({
@@ -41,6 +42,11 @@ function LocationLabel({ location }: { location: string }) {
 
 export default function Home() {
   const [featured, ...posts] = allPosts;
+  const searchPosts = allPosts.map(({ slug, title, tags }) => ({
+    slug,
+    tags,
+    title,
+  }));
 
   return (
     <div className="min-h-screen">
@@ -79,6 +85,8 @@ export default function Home() {
                 <IoPersonCircle size={24} />
               </IconLink>
             </nav>
+
+            <PostSearch posts={searchPosts} />
           </div>
         </aside>
 
