@@ -6,8 +6,8 @@ import ThemeToggle from "@/app/components/theme-toggle";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Taehoon Hwang | Notes",
-  description: "Essays and technical notes by Taehoon Hwang.",
+  title: "Taehoon Hwang | Blog",
+  description: "Blog Posts by Taehoon Hwang.",
 };
 
 const theme_script = `
