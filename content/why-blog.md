@@ -1,0 +1,7 @@
+Why make a blog at all?
+
+After all, it's more work than just using some other social media like Twitter, Bluesky, or LinkedIn. Conversely, you also can't capture all the formatting and writing details that a manuscript on arXiv may. But, I think there's a charm to blog posts that social media or LaTeX documents often fail to capture. It's a nice middle ground that doesn't sacrifice proper equation rendering or code blocks, all while allowing me to maintain a more casual and non-professional tone. It also helps that unlike social media, I can use this blog as a space to just exert all of my thoughts in a more structured manner, without consideration of likes or comments. And while yes, a blog is of course significantly more difficult to maintain compared to a Twitter account (Next.js and all that), but that's what Codex and Claude Code are for! (/hj)
+
+Another motivation for blogging was that I originally tried writing some of these thoughts in a diary, but soon realized it was basically impossible for me to follow a set schedule where I needed to write every day (because I'm lazy). A blog allows me to post at my own pace, without having to worry about "upload frequency."
+
+So, expect me to post something here if I think of something interesting or something I want to talk about. How often that will be, I have no idea. Maybe a week, maybe an year. Don't expect much of me. Shoo.

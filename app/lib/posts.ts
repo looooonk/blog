@@ -22,46 +22,18 @@ export interface BlogPost {
 
 const posts = [
   {
-    slug: "why-this-blog-exists",
-    timestamp: "2026-05-29T22:30:00+09:00",
+    slug: "why-blog",
+    timestamp: "2026-05-30",
     location: "Seoul, South Korea",
-    title: "Why this blog exists",
+    title: "Why blog?",
     subtitle:
-      "A small place for notes that need more shape than a commit message and less ceremony than a paper.",
-    tags: ["meta", "web"],
+      "Posts that require a bit more thought than a post on twitter, but a bit less thought than a LaTeX writeup.",
+    tags: ["meta"],
     image: {
       src: "/images/field-notes.png",
       alt: "Abstract notebook and browser window illustration",
     },
-    content: "content/why-this-blog-exists.md",
-  },
-  {
-    slug: "markdown-as-contract",
-    timestamp: "2026-05-28T21:00:00+09:00",
-    location: "Seoul, South Korea",
-    title: "Markdown as an interface contract",
-    subtitle:
-      "Markdown is useful because it is small, predictable, and easy to move between tools.",
-    tags: ["markdown", "nextjs"],
-    image: {
-      src: "/images/markdown-contract.png",
-      alt: "Abstract markdown document illustration",
-    },
-    content: "content/markdown-as-contract.md",
-  },
-  {
-    slug: "small-model-notes",
-    timestamp: "2026-05-27T18:45:00+09:00",
-    location: "Seoul, South Korea",
-    title: "Notes on keeping small models honest",
-    subtitle:
-      "Before scaling a model or system, I want the small version to fail in legible ways.",
-    tags: ["research", "notes"],
-    image: {
-      src: "/images/small-models.png",
-      alt: "Abstract model evaluation chart illustration",
-    },
-    content: "content/small-model-notes.md",
+    content: "content/why-blog.md",
   },
 ] satisfies BlogPost[];
 
