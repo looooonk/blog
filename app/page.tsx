@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { ReactNode } from "react";
+import { MapPin } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { IoPersonCircle } from "react-icons/io5";
 
@@ -26,6 +27,15 @@ function IconLink({
     >
       {children}
     </a>
+  );
+}
+
+function LocationLabel({ location }: { location: string }) {
+  return (
+    <span className="inline-flex shrink-0 items-center gap-1 text-right text-sm text-muted-foreground">
+      <MapPin aria-hidden="true" size={14} strokeWidth={1.8} />
+      {location}
+    </span>
   );
 }
 
@@ -79,12 +89,15 @@ export default function Home() {
               className="group grid gap-6 border-b border-border pb-8 lg:grid-cols-[minmax(0,1fr)_18rem]"
             >
               <div className="space-y-4">
-                <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
-                  <time dateTime={featured.timestamp}>
-                    {formatPostDate(featured.timestamp)}
-                  </time>
-                  <span aria-hidden="true">/</span>
-                  <span>{featured.tags.join(", ")}</span>
+                <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 text-sm text-muted-foreground">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <time dateTime={featured.timestamp}>
+                      {formatPostDate(featured.timestamp)}
+                    </time>
+                    <span aria-hidden="true">/</span>
+                    <span>{featured.tags.join(", ")}</span>
+                  </div>
+                  <LocationLabel location={featured.location} />
                 </div>
 
                 <div className="space-y-2">
@@ -130,23 +143,28 @@ export default function Home() {
                     width={1600}
                   />
 
-                  <article className="min-w-0 space-y-2">
-                    <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
+                  <article className="flex min-w-0 flex-col">
+                    <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 text-sm text-muted-foreground">
                       <time dateTime={post.timestamp}>
                         {formatPostDate(post.timestamp)}
                       </time>
-                      <span aria-hidden="true">/</span>
-                      <span>{post.tags.join(", ")}</span>
+                      <LocationLabel location={post.location} />
                     </div>
 
-                    <h2 className="text-xl font-bold leading-snug text-foreground group-hover:text-muted-foreground">
-                      {post.title}
-                    </h2>
-                    {post.subtitle ? (
-                      <p className="text-sm leading-relaxed text-muted-foreground">
-                        {post.subtitle}
-                      </p>
-                    ) : null}
+                    <div className="mt-2 space-y-2">
+                      <h2 className="text-xl font-bold leading-snug text-foreground group-hover:text-muted-foreground">
+                        {post.title}
+                      </h2>
+                      {post.subtitle ? (
+                        <p className="text-sm leading-relaxed text-muted-foreground">
+                          {post.subtitle}
+                        </p>
+                      ) : null}
+                    </div>
+
+                    <div className="mt-auto pt-3 text-sm text-muted-foreground">
+                      {post.tags.join(", ")}
+                    </div>
                   </article>
                 </Link>
               ))}

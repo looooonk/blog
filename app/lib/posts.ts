@@ -9,6 +9,7 @@ const postContentPrefix = "content/";
 export interface BlogPost {
   slug: string;
   timestamp: string;
+  location: string;
   title: string;
   subtitle?: string;
   tags: string[];
@@ -23,6 +24,7 @@ const posts = [
   {
     slug: "why-this-blog-exists",
     timestamp: "2026-05-29T22:30:00+09:00",
+    location: "Seoul, South Korea",
     title: "Why this blog exists",
     subtitle:
       "A small place for notes that need more shape than a commit message and less ceremony than a paper.",
@@ -36,6 +38,7 @@ const posts = [
   {
     slug: "markdown-as-contract",
     timestamp: "2026-05-28T21:00:00+09:00",
+    location: "Seoul, South Korea",
     title: "Markdown as an interface contract",
     subtitle:
       "Markdown is useful because it is small, predictable, and easy to move between tools.",
@@ -49,6 +52,7 @@ const posts = [
   {
     slug: "small-model-notes",
     timestamp: "2026-05-27T18:45:00+09:00",
+    location: "Seoul, South Korea",
     title: "Notes on keeping small models honest",
     subtitle:
       "Before scaling a model or system, I want the small version to fail in legible ways.",
@@ -90,11 +94,8 @@ export function getAdjacentPosts(slug: string) {
 export function formatPostDate(timestamp: string) {
   return new Intl.DateTimeFormat("en", {
     day: "numeric",
-    hour: "numeric",
-    minute: "2-digit",
     month: "short",
     timeZone: "Asia/Seoul",
-    timeZoneName: "short",
     year: "numeric",
   }).format(new Date(timestamp));
 }
