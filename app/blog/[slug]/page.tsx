@@ -9,6 +9,7 @@ import {
   formatPostDate,
   getAdjacentPosts,
   getPost,
+  readPostContent,
 } from "@/lib/posts";
 
 type Props = {
@@ -37,6 +38,7 @@ export default async function BlogPostPage({ params }: Props) {
 
   if (!post) notFound();
 
+  const content = await readPostContent(post);
   const { previous, next } = getAdjacentPosts(slug);
   const related = allPosts.filter((entry) => entry.slug !== slug);
 
@@ -80,7 +82,7 @@ export default async function BlogPostPage({ params }: Props) {
           />
         </header>
 
-        <Markdown content={post.content} />
+        <Markdown content={content} />
 
         <footer className="mt-12 space-y-8 border-t border-border pt-8">
           <div className="grid gap-3 sm:grid-cols-2">
